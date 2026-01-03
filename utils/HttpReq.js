@@ -21,7 +21,7 @@ const getWeatherData = async (type, data) => {
       break;
 
     default:
-      url = `${BASE_URL}/weather?qhHamedan&appid=${API_KEY}&units=metric`;
+      url = `${BASE_URL}/weather?q=Hamedan&appid=${API_KEY}&units=metric`;
 
       break;
   }
@@ -30,9 +30,8 @@ const getWeatherData = async (type, data) => {
     const json = await response.json();
     if (+json.cod === 200) {
       return json;
-    }else{
-        showModal(json.message);
-        
+    } else {
+      showModal(json.message);
     }
     return json;
   } catch (error) {
